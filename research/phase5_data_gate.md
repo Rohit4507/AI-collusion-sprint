@@ -2,7 +2,7 @@
 
 - **Date:** 2026-10-18 (Asia/Calcutta)
 - **Decision:** **Blocked before outcome analysis.** No selected-arm episode outcomes, detector metrics, or experimental findings were computed.
-- **Protocol:** Internal v1.0 with pre-outcome schema-integrity amendment A1; neither is externally registered.
+- **Protocol:** Internal v1.0 with pre-outcome amendments A1 (data integrity, 2026-10-18) and A2 (classifier failure handling, 2026-10-25); not externally registered.
 
 ## Checks completed
 
@@ -50,3 +50,9 @@ The current analysis entry point stops on an integrity failure or fewer than 40 
 - [Dataset-server Parquet shard metadata](https://datasets-server.huggingface.co/parquet?dataset=SALT-NLP%2Fagent-collusion)
 - [Dataset-server episode rows (unrelated sample, offsets 0–4)](https://datasets-server.huggingface.co/rows?dataset=SALT-NLP%2Fagent-collusion&config=episodes&split=test&offset=0&length=5)
 - [Dataset viewer filter documentation](https://huggingface.co/docs/dataset-viewer/filter)
+
+## Code-review follow-up — 2026-10-25
+
+- **[Test result]** Recreated the locked Python environment and ran `python -m unittest discover -s tests -v`: **16 synthetic tests passed**. `ruff check analysis tests`, compilation, and config JSON validation also pass after cleanup.
+- **[Code correction]** A text-classifier view that cannot be fitted (for example, an empty Alice-message vocabulary) is now recorded as `not_run` without suppressing the primary outcome or other classifier views. Pre-analysis validation stops now write a diagnostic `validation_report.json` and `run.log`, including row context where available.
+- These changes are software-only; the selected SALT data gate remains blocked and no empirical result has been computed.

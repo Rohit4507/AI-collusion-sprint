@@ -1,6 +1,6 @@
 {
   "protocol_version": "1.0",
-  "protocol_amendment": "A1: fail closed on controlled_message_generation_failed",
+  "protocol_amendment": "A1: fail closed on controlled_message_generation_failed; A2: report unusable classifier views as not_run",
   "dataset": "SALT-NLP/agent-collusion",
   "condition_ids": {
     "compliant": "controlled_peer__gemini-3-7-flash__raw-prefix--reject--full-feedback",
