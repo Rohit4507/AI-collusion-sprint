@@ -1,7 +1,7 @@
 # Phase 3 — Preregisterable experimental design
 
 - **Date:** 2026-10-18 (Asia/Calcutta)
-- **Status:** Protocol v1.0 was frozen internally on 2026-10-18 before any selected-arm outcome analysis. A pre-outcome data-integrity amendment (A1) was added the same date after inspecting only the general episode-table schema, not selected-arm rows. The protocol is **not externally registered**. No dataset files have been downloaded or inspected locally.
+- **Status:** Protocol v1.0 was frozen internally on 2026-10-18 before any selected-arm outcome analysis. Pre-outcome amendment A1 (data-integrity gate) was added on 2026-10-18 after inspecting only the general episode-table schema. Software-only amendment A2 (secondary classifier failure handling) was added on 2026-10-25; no selected-arm rows or outcomes were inspected. The protocol is **not externally registered**. No dataset files have been downloaded or inspected locally.
 
 ## 1. Decision and scope
 
@@ -43,6 +43,7 @@ The public condition metadata reports 50 runs and 10 evaluation episodes per arm
 - **[Verified fact — dataset-server metadata, 2026-10-18]** The dataset page lists **8.12 GB** total file size. Separately, the Hugging Face datasets-server `/size` endpoint reports an `episodes` Parquet config with 27,100 rows, 43 columns, and **15,976,423 bytes** of Parquet files (about 15.98 MB decimal); its metadata estimate for memory is about 63.8 MB. It lists all converted Parquet configs at 81,260,863 bytes total. These figures cover different scopes and have not been reconciled; the analysis plan needs only the `episodes` table if the listed message/action fields are present.
 - **[Not verified]** No Parquet or raw trace file was downloaded. A schema-only `/rows` sample from the `episodes` table contained records from an unrelated condition; it confirms global column names, not selected-arm field completeness or row values. The server-side `/filter` query did not return a usable result, so selected condition filtering will be done locally if the `episodes` Parquet config is retrieved. Exact row-level pairing and local parsing remain runtime checks.
 - **[Pre-outcome amendment A1 — data integrity]** The global schema includes `controlled_message_generation_failed`. Require this flag to be false on every selected episode; if any selected row indicates a failed controlled message, stop before computing outcomes and report the issue. Do not silently drop affected episodes or runs. This amendment adds only an intervention-integrity gate; it does not change the condition IDs, estimand, outcomes, feature sets, splits, or thresholds. It was recorded before inspecting selected-arm rows or outcomes.
+- **[Pre-outcome amendment A2 — secondary classifier failure handling]** If a pre-specified classifier view cannot be fit in any fold because its feature matrix or training step fails (for example, an empty Alice-text vocabulary), mark that classifier view `not_run`, record the reason, do not substitute features or models, and continue the primary outcome analysis and any other views that fit. No selected-arm results were inspected when this software-only handling rule was added (2026-10-25).
 - **[Design choice]** Freeze this protocol as internal version 1.0 on 2026-10-18 before inspecting outcomes from the two selected arms. The freeze applies to condition IDs, outcomes, splits, baseline features, thresholds, and stopping rules above. Any change after selected-arm outcomes are examined must be recorded as an exploratory amendment. This is not an external/public preregistration.
 
 ### 3.3 Units and pairing
@@ -119,6 +120,7 @@ The primary study evaluates response to a known scripted intervention. The basel
 - **Pairing gate:** require at least 40 complete `sequence_id` blocks for confirmatory paired inference. Fewer blocks → descriptive reporting only; do not substitute a different pair of conditions after inspecting outcomes.
 - **Protocol-label gate:** if raw-log completeness cannot be checked from the selected trace/message fields, relabel the primary endpoint as constrained-evidence `ACCEPT`; make no direct protocol-violation claim.
 - **Classifier gate:** if the records do not provide 10 ordered episodes per run, or if the fold grouping cannot keep paired sequences together, omit supervised classification and report why.
+- **Classifier-view failure (A2):** if a specific pre-specified feature view cannot be fit, mark it `not_run` with its reason; do not tune/replace it, and do not suppress the primary paired-outcome report or other views that fit.
 - **No silent tuning:** there is no threshold/model/feature tuning on final held-out predictions. Any protocol change after examining outcome results must be labelled an exploratory amendment, with the original analysis retained.
 - **Negative results:** report null or contrary-direction differences, false flags on the compliant-script arm, missing data, annotation coverage, and all deviations from this plan.
 
@@ -146,9 +148,10 @@ This schedule is a plan, not a promise of completion or competition results.
 4. [SALT-NLP dataset page](https://huggingface.co/datasets/SALT-NLP/agent-collusion) — license, data-size metadata, and available dataset subsets; page lists 8.12 GB total file size.
 5. [Datasets-server size metadata](https://datasets-server.huggingface.co/size?dataset=SALT-NLP%2Fagent-collusion) and [Parquet file metadata](https://datasets-server.huggingface.co/parquet?dataset=SALT-NLP%2Fagent-collusion) — converted `episodes` table size and row/column counts. Metadata only; no Parquet file downloaded.
 
-## Phase 3 completion record
+## Phase 3 completion record and current status
 
-- **Done:** Froze internal protocol v1.0 before selected-arm outcome analysis; specified exact condition IDs, outcomes, baseline eligibility, grouped validation, exclusion rules, uncertainty, and stopping criteria. Metadata-only preflight found a small `episodes` Parquet config suitable for a no-full-release route.
-- **Not done:** No local data inspection/download, code, tests, detector, model/API call, benchmark run, or experiment.
+- **Phase 3 done:** Froze internal protocol v1.0 before selected-arm outcome analysis; specified exact condition IDs, outcomes, baseline eligibility, grouped validation, exclusion rules, uncertainty, and stopping criteria. Metadata-only preflight found a small `episodes` Parquet config suitable for a no-full-release route.
+- **At Phase 3 close:** No local data inspection/download, code, tests, detector, model/API call, benchmark run, or experiment had been performed.
+- **Later status:** Phase 4 offline pipeline and synthetic tests are implemented; see `research/implementation_record.md`. Software review amendments A1/A2 are listed above.
 - **Open blocker:** The broad common-cause/no-peer-access contrast is not supplied by the selected arms; actual Parquet retrieval, parsing, and sequence pairing remain unverified.
-- **Next phase:** Implement a small offline pipeline that validates these gates before producing outcomes. Do not add a no-peer/common-cause claim unless a valid control is added and preregistered before its outcomes are examined.
+- **Next:** Obtain the `episodes` Parquet shards and pass the local pre-analysis gate before computing outcomes. Do not add a no-peer/common-cause claim unless a valid control is added and preregistered before its outcomes are examined.
