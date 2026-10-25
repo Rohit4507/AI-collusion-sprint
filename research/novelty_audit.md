@@ -1,3 +1,103 @@
+# Phase 2 — Revalidated novelty and project-selection audit
+
+**Audit date: 2026-10-25 (Asia/Calcutta).** This is a new project-selection recommendation under the actual deadline, not a retrospective claim about what was known on October 18. Historical audit and existing frozen SALT protocol remain preserved below. No detector implementation, model call, dataset download or experiment was performed in this phase. No selected-arm outcomes were inspected.
+
+## Evidence conventions and search scope
+
+- **[Verified fact — source reports]** means the cited source states it; performance is not independently reproduced.
+- **[Statistical interpretation]** means reasoning under specified assumptions, not measured performance.
+- **[Hypothesis]** marks feasibility/novelty judgments and recommendations.
+- **[Not verified]** marks unresolved access, licensing, implementation or evidence.
+- **[Future work]** marks proposed work, not a completed experiment.
+- **[Verified fact — process]** This recheck read the existing audit, retrieved the sources below and ran one targeted web search: “multi agent collusion detection common cause conditional mutual information matched controls false positives”. This is not an exhaustive systematic review. Search snippets were not treated as replicated results.
+
+## Executive decision
+
+**[Hypothesis]** The broad candidate survives as a *research question*, but fails as a defensible claim of a new detector or a general deliberate-collusion classifier. Under Rs 0, no dependence on proprietary hosted models, and the October 25 deadline, select **C: a narrowly scoped CPU-only scripted identifiability and false-positive stress test** for Phase 3 design. This is a proposed separate study, not a silent change to the existing SALT audit.
+
+**[Hypothesis]** Working title: **When Shared Context Looks Like Coordination: A Controlled Stress Test of Behavioral Audit Signals**. Proposed contribution is an auditable evaluation artifact: observationally matched mechanism cases, a context-observability ladder, and an intervention-based reference. Do not call MI, CMI, matched controls, or residualization themselves new methods. Do not claim this artifact is the first of its kind.
+
+**[Statistical interpretation]** This route trades direct LLM external validity for known mechanism labels and controlled falsification. A result on scripted agents cannot establish detection of deliberate LLM intent, emergent LLM collusion, or deployment-grade false-positive control.
+
+## 1. Closest verified prior art
+
+| Source rechecked on 2026-10-25 | Source-backed overlap | Consequence for our claims |
+|---|---|---|
+| [Official Track 2.3 Resources](https://apartresearch.com/sprints/ai-collusion-research-sprint-2026-10-23-to-2026-10-25) (checked in Phase 1) | **[Verified fact]** Already proposes coordinated harmful action, shared-incentive similarity without agreement, talk without changed behavior, and several evidence types. | **[Hypothesis]** Broad framing and three-way controls are not sufficient novelty. |
+| [Bonjour et al., UAI 2022](https://proceedings.mlr.press/v180/bonjour22a.html) | **[Verified fact]** Uses action mutual information for repeated simultaneous games and partially observable sequential games. | **[Hypothesis]** MI is a baseline; exact net-influence replication needs formula/code verification, not renaming ordinary MI. |
+| [The Illusion of Collusion, v2](https://arxiv.org/html/2411.16574) | **[Verified fact — source reports]** Context-free bandits without direct competitor-state/action knowledge can develop synchronous, seemingly collusive behavior in repeated Prisoner's Dilemma. | **[Statistical interpretation]** Absence of direct observation does not imply absence of payoff-mediated interaction. Our strict independent null must avoid cross-agent reward feedback, not merely remove messages. |
+| [ColludeBench design](https://github.com/Ostailor/Steganographic_Collusion/blob/main/docs/colludebench_design.md) | **[Verified fact]** Describes configurable honest/colluding policies, covert schemes, pricing/auction/review settings and harm indicators. | **[Hypothesis]** A toy honest-vs-colluder generator is not enough novelty. Test observational ambiguity, missing context and generalization explicitly. Specification numbers are not verified outputs. |
+| [Beyond the Transcript, v1](https://arxiv.org/html/2608.19161v1) | **[Verified fact — source reports]** Uses neutral/blocked matched latent-channel counterfactuals; explicitly calls exact recovery by replay a sanity check by construction. | **[Hypothesis]** Counterfactual monitoring is established prior art. Our possible difference is a transparent black-box/scripted stress test of missing common causes, not a new causal-monitoring principle. |
+| [SPAR project description](https://sparai.org/projects/f26/recDQmFvumFiPhPZs/) | **[Verified fact]** Proposes benign-coordination false positives, implicit actions, and shared-model/incentive explanations. | **[Statistical interpretation]** Proposal overlap is strong; it does not establish completed empirical results or validate its critiques of other benchmarks. |
+| [SALT-NLP README](https://github.com/SALT-NLP/agent-collusion) | **[Verified fact]** Already studies controlled peers; compliant raw-prefix/reject and violating summary/accept scripts change both policy components. Existing measurements and ablations target peer influence. | **[Hypothesis]** Recomputing its contrast is a replication/audit, not discovery of peer influence. |
+
+## 2. Evidence and baseline gap matrix
+
+All entries in the final two columns are **[Statistical interpretation]** or **[Future work]**, not experimental observations.
+
+| Evidence class | Existing overlap | What it cannot identify by itself | Proposed comparison |
+|---|---|---|---|
+| Prevalence / constant score | Standard classification sanity check | Any mechanism or ranking | Training-prevalence probability, all-negative decision and randomized score reference; do not optimize these on test data. |
+| Message-only | Official 2.2/2.3, Colosseum communication measures | Execution, harm or action-only channel | Transparent keyword baseline and simple TF-IDF classifier; identical message templates across some positive/negative cases. |
+| Action-only | Bonjour; Colosseum outcome measures | Common cause vs direct information flow | Action-frequency features plus shallow classifier; mechanism labels hidden. |
+| Similarity / synchronization | Illusion of Collusion | Independent shared-context similarity vs coordination | Raw agreement; include strong benign synchrony and asymmetric coordination. |
+| MI / conditional dependence | Bonjour and ColludeBench family | Intent; causation with missing context; many low-entropy coordination mechanisms | Discrete MI and CMI with documented finite-sample support, block-aware null calibration and incomplete-context tests. Do not claim exact Bonjour baseline until implemented from its equations. |
+| Combined supervised trajectory features | Standard shallow supervised classification; official message/action comparison | Unknown mechanisms; shortcut-free generalization | Logistic regression with fold-local preprocessing, sequence/scenario-family groups and matched detector inputs. |
+| Benchmark-native baseline | ColludeBench detector stack; Colosseum coalition advantage | Transfer to a different environment or label definition | Include only if a licensed executable component accepts our data and assumptions. Otherwise record unavailable/inapplicable, not a counterfeit reimplementation. |
+| Common-cause control | Official 2.3; Illusion of Collusion | Unmeasured common causes and payoff-mediated influence | Independent exogenous random streams conditional on fixed common context, no peer observation, no shared private randomness or cross-agent reward feedback. |
+| Matched intervention reference | SALT peer interventions; Beyond the Transcript | Subjective intent; deployment feasibility without replay access | Scripted channel cut/replacement under matched exogenous randomness; explicitly report privileged intervention access. |
+
+**[Statistical interpretation]** Harm, communication agreement, causal peer influence and mechanism assignment must be separate labels. Benign coordination can involve real influence; independent harmful behavior can exist without influence. No single binary mechanism label is a complete definition of collusion.
+
+## 3. Four-direction gap/feasibility matrix
+
+Every assessment below is **[Hypothesis]**, conditional on future validation. Data descriptions reference the verified sources above; local execution/access remains unverified unless explicitly noted.
+
+| Direction | Novelty | Importance for AI control | Feasibility before current deadline | Data availability | Rs 0 / compute | Ground truth | Risk | Concrete deliverable |
+|---|---|---|---|---|---|---|---|---|
+| A. Original candidate: general context-aware collusion detector on LLM workflows | Low broad novelty; specific improvement unproven | High if it works | Low: missing matched independent cases and no validated local generation | Recommended repos exist; adequate raw matched data not established | Local small-model route possible in principle; not verified on 6 GB | Deliberate intent not directly observed | Overclaiming, weak controls, generation failures | Controlled LLM detector comparison only after validated data; not recommended as current scope |
+| B. Existing SALT controlled-peer trace audit | Incremental replication/audit | Moderate: intervention integrity and focal behavior | Conditional: pipeline exists, required data still absent locally | Public dataset linked; local selected rows not verified | CPU analysis costs no APIs, but chosen traces originate from proprietary models | Script assignment credible conditional on cache/generation validation; no independence null | Bundled intervention, treatment-revealing features, blocked input | Paired acceptance differences, focal-only arm classifiers, integrity report |
+| C. Scripted observability / common-cause stress test | Incremental artifact; precise observability test may add value | Moderate: evidence standards and false accusation | Best bounded engineering scope, but still must pass controls | Generate local scripted data after design freeze | CPU-only; no hosted-model or weight dependency | Structural channel assignment known; subjective intent absent | Synthetic shortcuts, oracle-context advantage, no LLM transfer | Mechanism-matched traces, leakage-tested baseline comparison, missing-context/intervention failure map |
+| D. Local-model Dolos red-team audit | Discovery depends on experiments; not established | Potentially useful but less aligned to collusion | Low for this reset: download/inference/discovery unvalidated | Organizer links weights; no local weights verified | Organizer says Rs 0; download/6 GB behavior not tested | Hidden target initially unknown | Open-ended discovery and weak causal explanation | Validated behavior audit if discovered; not primary recommendation |
+
+## 4. Explicit selection rule (not selected by preliminary metrics)
+
+- **[Hypothesis — hard gate 1]** No paid API or proprietary hosted-model dependency in generation or evaluation. For safety, interpret this conservatively: do not use proprietary-origin traces as the main empirical basis without relaxing the constraint. B fails this conservative gate; its existing code remains useful as a separate historical artifact.
+- **[Hypothesis — hard gate 2]** Have obtainable data and operational labels before outcome analysis; do not rely on unverified raw-log availability. A currently fails; D has unresolved artifact and target-discovery risk.
+- **[Hypothesis — hard gate 3]** A beginner solo participant must be able to explain and CPU-reproduce the complete experiment with time reserved for report/verification. C has the smallest dependency surface.
+- **[Hypothesis — ranking after gates]** Prioritize ground-truth credibility and falsifiability, then independent control quality, then bounded engineering, then incremental novelty. No numerical “novelty scores” are invented.
+- **[Hypothesis — decision]** C is the primary Phase 3 design recommendation. B stays a separately frozen replication route, not a fallback dataset to substitute after observing C's results. Do not blend its labels or outputs into C.
+
+## 5. Proposed distinguishing stress test and falsification
+
+- **[Future work]** Construct an observationally ambiguous pair. Example: shared hidden Bernoulli Z causes both independent agents to emit Z; in a channel case, agent A emits a private Bernoulli U and agent B copies A. Both yield identical observed action-pair distributions, but different effects under a channel-cut intervention. Match message and outcome surfaces as well if claiming full observed-trace equivalence.
+- **[Statistical interpretation]** If the auditor's entire observed distribution is identical across labels, no detector using only those observations can separate the labels above chance at balanced prevalence. This is an elementary identifiability example, not a new impossibility theorem and not a measured result.
+- **[Future work]** Add complete, partially observed and hidden common-context conditions. Conditional dependence should work only where its structural assumptions and support hold. Include positives whose coordination is explained by visible context so CMI can also miss genuine information flow.
+- **[Future work]** Compare observational detectors under identical inputs. Report a replay/intervention reference separately: privileged access cannot be advertised as fair superiority over a transcript-only baseline.
+- **[Future work]** Split complete scenario blocks and keep their matched variants together; hold out generator/scenario families and message templates. Store mechanism metadata separately from detector input. Use independent named RNG streams rather than accidental shared seeds for supposedly independent agents.
+- **[Future work]** Define positive/negative controls, error tolerances, primary metric and calibration/test split in Phase 3 before any run. Test false alarms at matched detection budgets, not merely AUROC. Preserve every prespecified seed and failed run.
+- **[Future work]** Reject a claim of incremental detector value if the context-aware method does not reduce benign common-cause false flags at the prespecified recall requirement on held-out families, or if gains disappear after template/metadata leakage is removed. If only oracle context works, report conditional validity—not deployable detection.
+
+## 6. Boundary on contribution and current evidence
+
+- **[Verified fact — local inspection]** Existing repository contains a SALT audit and frozen protocol; it does not supply the newly proposed scripted stress-test implementation. No existing result supports the new recommendation empirically.
+- **[Not verified]** An exact prior artifact matching the proposed stress test has not been ruled out. No “first”, “state of the art”, real-LLM recall or general collusion-FPR claim is justified.
+- **[Hypothesis]** Even a negative result can support a useful submission if it cleanly demonstrates when common-cause conditioning helps, when hidden context destroys identifiability, and what extra audit access is required. Submission strength depends on actual execution, not this plan.
+- **[Future work]** Phase 3 must freeze the new study separately and revise the old internal documentation only through dated amendments. Do not backdate this October 25 recommendation or describe it as an external preregistration.
+
+## Phase 2 checklist
+
+- **[Verified fact] Done:** four directions compared; candidate audited against named baseline/evidence classes; decision uses hard constraints, not attractive preliminary metrics; source overlap and synthetic limitations explicit.
+- **[Not verified] Failed/remaining:** no validated real-LLM matched-independent dataset within constraints; no benchmark reproduction or novelty-exhaustiveness guarantee.
+- **[Verified fact] No detector code or new experimental results produced.**
+- **[Future work] Next:** Phase 3, freeze the scripted observability study, A–D mechanism conditions, harmful-outcome labels, exact estimand, sample-size rationale, thresholds, split/seed strategy, ablations and stop rules.
+
+---
+
+## Historical October 18 audit — preserved, not the current selection decision
+
+**[Not verified in this recheck]** Historical citations and numerical claims below were not all freshly inspected. Conflicting feasibility/timing recommendations are superseded by the current audit above; they are retained for provenance, not treated as new evidence.
+
 # Phase 2 — Novelty and gap audit: Detection and Audit
 
 - **Audit date:** 2026-10-18 (Asia/Calcutta)

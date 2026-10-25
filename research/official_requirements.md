@@ -1,3 +1,61 @@
+# Phase 1 — Current official requirements audit
+
+**Rechecked: 2026-10-25, Asia/Calcutta.** This section supersedes conflicting statements in the historical audit below. No detector code or benchmark execution was performed in this Phase 1 recheck.
+
+## Sources actually retrieved in this recheck
+
+- **[Verified fact — source]** [Official sprint page](https://apartresearch.com/sprints/ai-collusion-research-sprint-2026-10-23-to-2026-10-25), Overview, Resources, Guidelines and FAQ, retrieved 2026-10-25.
+- **[Verified fact — source]** [Official template](https://docs.google.com/document/d/1Y5wd3VRbXU5N08BvAGiJUQTaWbMCSPjhzXsR-ozuehg/export?format=html), retrieved 2026-10-25.
+- **[Verified fact — source]** [Submission/prize terms](https://apartresearch.com/sprints/prize-terms), retrieved 2026-10-25.
+
+## Current submission requirements
+
+Every verified rule in this section is from the official sprint page above unless another source is named.
+
+- **[Verified fact]** Tracks: Markets and Collusion; Detection and Audit of Collusion; Collusion Carriers and Countermeasures. Track 2 questions cover task types, messages plus actions, and standards of convincing evidence. Tracks share the same rubric.
+- **[Verified fact]** Deadline: October 25, 2026, 23:59 Anywhere on Earth. **[Verified fact — arithmetic]** Using AoE UTC−12 and IST UTC+05:30 gives October 26, 2026, **17:29 IST**. This is a conversion, not an India-specific statement printed by the organizer.
+- **[Verified fact]** Required report: PDF using the official template, **maximum 8 pages excluding references and appendices**, title, **150–250-word abstract**, author names and affiliations, and a **Limitations and Dual-Use / Ethical Considerations** appendix. The form accepts PDF up to 25 MB.
+- **[Verified fact]** Public code and a 3–5-minute video are optional. The template supports adaptable section structure and recommends four pages; this recommendation does not override the sprint's eight-page cap.
+- **[Verified fact]** The form includes title, summary, publishing-interest question, tracks, team name/location and member name/email; optional fields include code, recording, slides, image and additional material. Current retrieved page says “Live now” and exposes submission controls.
+- **[Not verified]** End-to-end submission acceptance was not tested; no form was submitted. Prior closed-widget observations below are historical, not the current page-state finding.
+- **[Verified fact]** Solo entry is allowed; teams up to five recommended, larger groups allowed; at most two projects per person. Global remote participation is allowed. Unfinished work may be submitted with honest limitations.
+- **[Verified fact]** Preexisting code must be marked in README and report; new sprint contributions must be identified. Undisclosed prior work can lead to disqualification.
+- **[Verified fact]** AI tools may help reasoning, coding, debugging and writing; the team remains responsible for all content. Fabricated references/results can disqualify a project. The template requests an LLM Usage Statement and strongly encourages primarily team-written final text.
+- **[Future work]** Maintain a truthful contribution/time ledger and disclose AI assistance; do not claim independent verification for checks the author has not performed.
+- **[Verified fact]** Correcting form metadata with the same title does not replace the PDF. For a changed PDF, submit with a slightly different title or email the new PDF before the deadline. Confirmation should arrive shortly; contact sprints@apartresearch.com if absent.
+
+## Rubric and practical implications
+
+- **[Verified fact]** Three dimensions, each scored 1–5: **Impact Potential & Innovation**, **Execution Quality**, **Presentation & Clarity**. High scores emphasize original important work, convincing validation and clearly supported conclusions, and accessible presentation. Individual judge scores are internal. No aggregation weights were established from the inspected page.
+- **[Hypothesis]** A narrow, verified contribution with explicit negative controls is more defensible than a broad unvalidated “collusion detector”; this is a research strategy, not a predicted competition outcome.
+
+## Licensing and compute
+
+- **[Verified fact — terms]** Authors retain copyright and grant Apart a worldwide, nonexclusive, royalty-free license to store, publish, share and process submissions, including with AI tools, for judging, promotion, programs and tool development. Submission confirms named members agree. This does not itself supply a public open-source license.
+- **[Not verified]** No mandatory public software/data license was established. Third-party code, model and data rights require separate checking.
+- **[Verified fact]** Current overview offers Modal credits of $250 per person at the New York hub and $50 for other participants; older claims below about hub-only credits are superseded.
+- **[Hypothesis]** Keep the Rs 0 project independent of promotional credits and hosted models. CPU-compatible offline analysis or small scripted controls remain plausible; GPU-local end-to-end benchmark feasibility is not yet demonstrated.
+
+## Resources and past-project evidence
+
+- **[Verified fact]** Resources explicitly recommend Colosseum and ColludeBench for Track 2.3. They warn ColludeBench should be preflighted, not treated as a turnkey raw-trajectory dataset. Track 2.3 already proposes coordinated harmful action, shared-incentive similarity without agreement, and talk without changed behavior. Thus the general candidate framing is not by itself novel.
+- **[Verified fact]** Colosseum current README documents local Qwen2.5-7B/vLLM as well as API runs, and warns Terrarium 0.2.x changes behavior relative to the paper tag. See the refreshed related-work inventory.
+- **[Verified fact]** [March AI Control results](https://apartresearch.com/sprints/ai-control-hackathon-2026-03-20-to-2026-03-22) list Omission Attacks first. Its [project reviews](https://apartresearch.com/sprints/projects/omission-attacks-when-doing-nothing-is-the-attack-0y1v) praise operationalization/artifacts but ask for larger repeated evaluations and question task-specific overfitting.
+- **[Verified fact]** [Loyal Lies public reviews](https://apartresearch.com/sprints/projects/loyal-lies-auditing-secret-loyalties-under-attack-and-the-falsepositive-problem-in-blind-elicitation-ezwb) praise decoy controls and attacking the team's own detector, but criticize inconsistent enforcement of a prespecified behavioral gate and overbroad evasion framing. These are source-reported critiques, not reproduced results.
+- **[Statistical interpretation]** Two selectively visible projects cannot establish which features caused high scores; individual scores are not public. Use these as qualitative design lessons, not a winning recipe.
+
+## Phase checklist
+
+- **[Verified fact] Done:** current official requirements, template, terms, recommended benchmark documentation and two past-project review pages checked.
+- **[Not verified] Remaining:** actual submission transaction, complete benchmark reproduction, third-party data availability/rights and 6 GB hardware feasibility.
+- **[Future work] Next:** Phase 2, refresh the three-direction novelty/feasibility matrix before choosing or changing any detector implementation.
+
+---
+
+## Historical audit — retained for provenance, not current requirements
+
+**[Not verified in this recheck]** The historical entries below retain their original dates and source claims. Conflicts with the current section must not be used as submission instructions.
+
 # Phase 1 — Official sprint requirements audit
 
 - **Audit date:** 2026-10-17 (UTC)
