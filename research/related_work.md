@@ -1,3 +1,24 @@
+# Phase 1 — Source inventory revalidation, 2026-10-25
+
+**[Verified fact]** The following entries were checked through live pages and GitHub API/README reads on 2026-10-25. No external benchmark was installed or executed in this recheck. Historical paper metadata below was not revalidated; do not treat the old inventory as fresh source verification.
+
+| Source / date checked | Source-reported key claim | License evidence | Rs 0 / local status |
+|---|---|---|---|
+| [Official sprint Resources](https://apartresearch.com/sprints/ai-collusion-research-sprint-2026-10-23-to-2026-10-25), 2026-10-25 | **[Verified fact]** Track 2.3 already asks for coordinated harm vs common incentives vs talk-only cases, with conversation, advantage and dependence evidence. | **[Not verified]** Public webpage availability is not a reuse license. | **[Verified fact]** Default Track 2 pilots estimate paid API costs; no-GPU does not mean Rs 0. |
+| [Colosseum](https://github.com/umass-ai-safety/colosseum), README and default branch, 2026-10-25 | **[Verified fact]** Tool-calling multi-agent audit framework; current README documents Terrarium 0.2.1 and paper tag `paper-v0.1.1` using 0.1.1, with behavioral differences. Local Qwen2.5-7B/vLLM configs documented. | **[Verified fact]** GitHub license endpoint returned 404 and root listing exposed no LICENSE. **[Not verified]** No blanket reuse permission established; dependencies and paper may have separate licenses. | **[Verified fact]** Local-model route is documented. **[Not verified]** It was not run; CPU or RTX 3050 6 GB feasibility and complete local judging remain unestablished. |
+| [ColludeBench / Audit the Whisper](https://github.com/Ostailor/Steganographic_Collusion), README and license API, 2026-10-25 | **[Verified fact]** Authors describe MI/permutation/watermark/fairness detectors, synthetic environments and honest-run calibration; reported strong performance is not independently reproduced here. | **[Verified fact]** GitHub license API identifies MIT for repository code; dataset and external baseline rights still need separate inspection. | **[Verified fact]** README separates smoke/regeneration commands from Gemini/Groq runs requiring keys. **[Not verified]** Commands, referenced artifacts and full no-cost reproduction have not been tested. |
+| [Bonjour et al.](https://proceedings.mlr.press/v180/bonjour22a.html), organizer description checked 2026-10-25 | **[Verified fact — organizer report only]** Organizer describes pairwise net influence in small discrete games, assumes exactly two colluders, and says no public author implementation located. | **[Not verified]** Paper/implementation license not checked this turn. | **[Hypothesis]** Scripted CPU validation is plausible; correctness and applicability need dedicated checks. |
+| [Omission Attacks](https://apartresearch.com/sprints/projects/omission-attacks-when-doing-nothing-is-the-attack-0y1v), 2026-10-25 | **[Verified fact — source reports]** Explicit omission threat model and postcondition-monitor comparison; reviews request scale, repeats and overfitting checks. [Event](https://apartresearch.com/sprints/ai-control-hackathon-2026-03-20-to-2026-03-22) lists first place. | **[Not verified]** Report/code reuse license not established. | **[Not verified]** Full no-paid-API reproduction not established; this is a presentation/control-design precedent. |
+| [Loyal Lies](https://apartresearch.com/sprints/projects/loyal-lies-auditing-secret-loyalties-under-attack-and-the-falsepositive-problem-in-blind-elicitation-ezwb), 2026-10-25 | **[Verified fact — source reports]** Decoy/exposure controls, blind checks and detector attacks; reviews identify one prespecified-gate inconsistency and narrower evasion scope. | **[Not verified]** License not rechecked this turn. | **[Not verified]** Reported experiments not reproduced. No inference that they fit our compute budget. |
+
+**[Hypothesis]** The novel contribution must be more specific than “distinguish coincidence from collusion”: the organizer already proposes that question and corresponding controls. Phase 2 should compare a concrete control/calibration improvement, an offline empirical trace audit, and a limited synthetic identifiability/failure-mode study.
+
+**[Future work]** Audit paper methods, exact code paths and available trajectory artifacts before selecting a project. Hosted-model provenance of public logs must be disclosed even if analysis itself costs Rs 0; if the constraint excludes proprietary-origin data entirely, reject that route.
+
+---
+
+## Historical source inventory (not freshly verified)
+
 # Phase 1 — Related-work and source inventory
 
 - **Inventory date:** 2026-10-17 (UTC)
